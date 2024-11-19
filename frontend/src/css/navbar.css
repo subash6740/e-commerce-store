@@ -1,0 +1,41 @@
+#cart {
+    position: relative;
+    color: white;
+    font-size: 10px;
+    background-color: red;
+    padding: 7% 15%;
+    border-radius: 50%;
+    left: 25%;
+    top: -13px;
+}
+.search-form {
+    position: relative; /* Establish a containing block for absolute positioning */
+    display: flex; /* Use flexbox for better alignment */
+    align-items: center;
+    max-width: 300px; /* Set a max width for the search box */
+    margin: 0 auto; /* Center the form */
+}
+
+.search-form input[type="text"] {
+    width: 100%; /* Take up all available space */
+    padding: 10px 40px 10px 10px; /* Add space for the button */
+    border: 1px solid #ccc; /* Input border */
+    border-radius: 25px; /* Rounded input */
+    outline: none; /* Remove default focus outline */
+    font-size: 14px;
+}
+
+.search-form button {
+    position: absolute; /* Position the button inside the input */
+    right: 10px; /* Align to the right side */
+    background: none; /* No background for a clean look */
+    border: none; /* Remove border */
+    color: #888; /* Icon color */
+    font-size: 16px; /* Adjust icon size */
+    cursor: pointer;
+}
+
+.search-form button:hover {
+    color: #000; /* Change icon color on hover */
+}
+

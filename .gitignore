@@ -1,4 +1,5 @@
 backend/node_modules
 frontend/node_modules
 e-commerce-store.code-workspace
-frontend\.eslintcache
+frontend/.eslintcache
+**/package-lock.json

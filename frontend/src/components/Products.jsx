@@ -7,6 +7,7 @@ import "react-loading-skeleton/dist/skeleton.css";
 import { Link } from "react-router-dom";
 import toast from "react-hot-toast";
 import { addCart as addCartApi } from "../apis/cart";
+import { useSearch } from "../contexts/SearchContext";
 const productApi = require('../apis/product')
 
 const Products = () => {
@@ -14,9 +15,9 @@ const Products = () => {
   const [filter, setFilter] = useState(data);
   const [loading, setLoading] = useState(true);
   const [categories, setCategories] = useState([])
-
-  const dispatch = useDispatch();
+  const { productQuery } = useSearch()
   const isLoggedIn = useSelector((state) => state.user.userId);
+  const dispatch = useDispatch();
 
   const addProduct = (product) => {
     if (isLoggedIn) {
@@ -32,13 +33,19 @@ const Products = () => {
     const getProducts = async () => {
       const { products, categories } = await productApi.getProducts()
       setData(products);
-      setFilter(products);
       setCategories(categories);
       setLoading(false);
     };
 
     getProducts();
   }, []);
+
+  useEffect(() => {
+    const filteredProducts = data.filter((product) =>
+      product.name.toLowerCase().includes(productQuery.toLowerCase())
+    );
+    setFilter(filteredProducts);
+  }, [productQuery, data])
 
   const Loading = () => {
     return (
@@ -149,12 +156,6 @@ const Products = () => {
   return (
     <>
       <div className="container my-3 py-3">
-        <div className="row">
-          <div className="col-12">
-            <h2 className="display-5 text-center">Latest Products</h2>
-            <hr />
-          </div>
-        </div>
         <div className="row justify-content-center">
           {loading ? <Loading /> : <ShowProducts />}
         </div>

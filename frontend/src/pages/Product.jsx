@@ -85,8 +85,7 @@ const Product = () => {
                 className="img-fluid"
                 src={convertImage(product.image)}
                 alt={product.title}
-                width="400px"
-                height="400px"
+                style={{height: '400px'}}
               />
             </div>
             <div className="col-md-6 col-md-6 py-5">
