@@ -77,6 +77,12 @@ const Navbar = () => {
                                     </NavLink>
                                     <div className="dropdown-menu">
                                         <NavLink
+                                            to="/profile"
+                                            className="btn btn-outline-light dropdown-item p-2"
+                                        >
+                                            <i className="fa-solid fa-user mr-1"></i> Profile
+                                        </NavLink>
+                                        <NavLink
                                             to="/order_history"
                                             className="btn btn-outline-light dropdown-item p-2"
                                         >
